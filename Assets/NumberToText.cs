@@ -24,19 +24,19 @@ public class NumberToText : MonoBehaviour
         }
     }
 
-    public bool validateInteger(TMP_InputField userInput)
+    bool validateInteger(TMP_InputField userInput)
     {
         return int.TryParse(userInput.text, out number);
     }
 
 
-    public string tenth(int inputNumber)
+    string tenth(int inputNumber)
     {
         string[] ten = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
         return ten[inputNumber];
     }
 
-    public string unit(int inputNumber)
+    string unit(int inputNumber)
     {
 
         string[] units = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" ,

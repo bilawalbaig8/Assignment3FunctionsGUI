@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enter a whole number less than 100 to check:
+  m_text: 'Enter a whole number less than 1000 to check:
 
 
     EVEN or ODD'

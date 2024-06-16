@@ -26,70 +26,61 @@ public class NumberToText : MonoBehaviour
 
     public bool validateInteger(TMP_InputField userInput)
     {
-        bool isInteger = int.TryParse(userInput.text, out number);
-
-        if (!isInteger)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return int.TryParse(userInput.text, out number);
     }
 
 
-    public string Tenth (int number)
+    public string tenth(int inputNumber)
     {
-        string[] tenth = { "Zero", "Ten", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninty" };
-        string result = "";
-        
-        validateInteger(userInput);
+        string[] ten = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+        return ten[inputNumber];
+    }
 
-        if (number < 100)
+    public string unit(int inputNumber)
+    {
+
+        string[] units = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" ,
+                        "Eleven","Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen","Eighteen", "Nineteen"};
+        return units[inputNumber];
+    }
+
+    public string numberToWord(int inputNumber)
+    {
+        string result = "";
+
+        if (inputNumber < 0)
+        { return "Use positive values only"; }
+
+        if (inputNumber == 0)
+        {      return unit(0);      }
+
+
+        if (inputNumber >= 100)
         {
-            if (number / 10 == 1) { result = tenth[1]; }
-            else if (number / 10 == 2) { result = tenth[2]; }
-            else if (number / 10 == 3) { result = tenth[3]; }
-            else if (number / 10 == 4) { result = tenth[4]; }
-            else if (number / 10 == 5) { result = tenth[5]; }
-            else if (number / 10 == 6) { result = tenth[6]; }
-            else if (number / 10 == 7) { result = tenth[7]; }
-            else if (number / 10 == 8) { result = tenth[8]; }
-            else if (number / 10 == 9) { result = tenth[9]; }
+            int hundrad = inputNumber / 100;
+            result += unit(hundrad) + " Hundrad ";
+            inputNumber %= 100;
+
+            if (inputNumber > 0)
+            {
+                result+=("& ");
+            }
         }
-        else
+
+        if (inputNumber >= 20)
         {
-            result = "Working but wrong";
+            int tens = inputNumber / 10;
+            result += tenth(tens) + " ";
+            inputNumber %= 10;
         }
+
+        if (inputNumber > 0)
+        {            result += unit(inputNumber) + " ";        }
+        
         return result;
     }
+   
 
-    //public string unit(int number)
-    //{
-    //    string[] unit = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine","Ten","Eleven", "Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Ninteen" };
-    //    string result = "";
-
-    //    validateInteger(userInput);
-
-    //    if (number > 20)
-    //    {
-    //        if (number / 10 == 1) { result = unit[1]; }
-    //        else if (number / 10 == 2) { result = unit[2]; }
-    //        else if (number / 10 == 3) { result = unit[3]; }
-    //        else if (number / 10 == 4) { result = unit[4]; }
-    //        else if (number / 10 == 5) { result = unit[5]; }
-    //        else if (number / 10 == 6) { result = unit[6]; }
-    //        else if (number / 10 == 7) { result = unit[7]; }
-    //        else if (number / 10 == 8) { result = unit[8]; }
-    //        else if (number / 10 == 9) { result = unit[9]; }
-    //    }
-    //    else
-    //    {
-    //        result = "Working but wrong";
-    //    }
-    //    return result;
-    //}
 
     public void SubmitBtn()
     {
@@ -102,8 +93,7 @@ public class NumberToText : MonoBehaviour
             else
             {
                 evenOddResult.text = "Enter a number less than 1000";
-            }
-            
+            }  
         }
         else
         {
@@ -114,18 +104,22 @@ public class NumberToText : MonoBehaviour
 
     public void ConversionBtn()
     {
-        numberToTextResult.text = Tenth(number);
+        if (validateInteger(userInput))
+        {
+            if (number < 1000)
+            {
+                numberToTextResult.text = numberToWord(number);
+            }
+            else
+            {
+                numberToTextResult.text = "Enter a number less than 1000";
+            }
+        }
+        else
+        {
+            numberToTextResult.text = "Enter a valid whole number";
+        }
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

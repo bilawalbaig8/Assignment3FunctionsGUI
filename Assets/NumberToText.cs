@@ -10,18 +10,17 @@ public class NumberToText : MonoBehaviour
     public TMP_InputField userInput;
     public TMP_Text evenOddResult;
     public TMP_Text numberToTextResult;
+    public TMP_Text test;
     private int number;
 
     public string DetermineEvenOdd(int number)
     {
         if (number%2 == 0)
-        {
-            return "Number is Even";
-        }
+           return "Number is Even";
+  
         else
-        {
             return "Number is Odd";
-        }
+
     }
 
     bool validateInteger(TMP_InputField userInput)
@@ -49,12 +48,11 @@ public class NumberToText : MonoBehaviour
         string result = "";
 
         if (inputNumber < 0)
-        { return "Use positive values only"; }
+            return "Use positive values only"; 
 
         if (inputNumber == 0)
-        {      return unit(0);      }
-
-
+            return unit(0);      
+        
         if (inputNumber >= 100)
         {
             int hundrad = inputNumber / 100;
@@ -62,9 +60,7 @@ public class NumberToText : MonoBehaviour
             inputNumber %= 100;
 
             if (inputNumber > 0)
-            {
                 result+=("& ");
-            }
         }
 
         if (inputNumber >= 20)
@@ -75,7 +71,7 @@ public class NumberToText : MonoBehaviour
         }
 
         if (inputNumber > 0)
-        {            result += unit(inputNumber) + " ";        }
+            result += unit(inputNumber) + " ";
         
         return result;
     }
@@ -87,19 +83,13 @@ public class NumberToText : MonoBehaviour
         if (validateInteger(userInput))
         {
             if(number < 1000)
-            {
-                evenOddResult.text = DetermineEvenOdd(number);
-            }
+             evenOddResult.text = DetermineEvenOdd(number);
+           
             else
-            {
                 evenOddResult.text = "Enter a number less than 1000";
-            }  
         }
         else
-        {
             evenOddResult.text = "Enter a valid whole number";
-        }
-       
     }
 
     public void ConversionBtn()
@@ -107,19 +97,11 @@ public class NumberToText : MonoBehaviour
         if (validateInteger(userInput))
         {
             if (number < 1000)
-            {
                 numberToTextResult.text = numberToWord(number);
-            }
             else
-            {
                 numberToTextResult.text = "Enter a number less than 1000";
-            }
         }
         else
-        {
             numberToTextResult.text = "Enter a valid whole number";
-        }
-
     }
-
 }

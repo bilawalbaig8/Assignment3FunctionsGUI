@@ -446,13 +446,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 205910346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3534cb2e4d53c5b44904e6566faa081d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec0603164203c9443916bb039222c2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: {fileID: 151684908}
-  pattern: {fileID: 0}
+  userInput: {fileID: 151684908}
   output: {fileID: 1101746155}
-  mirrored: {fileID: 0}
 --- !u!1 &221411712
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 205910348}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StarPattern, Assembly-CSharp
         m_MethodName: onmirroredClick
         m_Mode: 1
@@ -1461,7 +1459,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 205910348}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StarPattern, Assembly-CSharp
         m_MethodName: onmirroredClick
         m_Mode: 1
@@ -1731,8 +1729,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 205910348}
-        m_TargetAssemblyTypeName: StarPattern, Assembly-CSharp
-        m_MethodName: onGenerateClick
+        m_TargetAssemblyTypeName: ArrayIteration, Assembly-CSharp
+        m_MethodName: OnRepeatBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1741,7 +1739,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1592731213
 MonoBehaviour:
   m_ObjectHideFlags: 0

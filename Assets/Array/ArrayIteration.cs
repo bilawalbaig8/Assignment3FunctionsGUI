@@ -63,7 +63,7 @@ public class ArrayIteration : MonoBehaviour
 
     public void OnRepeatBtn()
     {
-        InputToArrayInt();
+        //InputToArrayInt();
         FindRepetition();
     }
 
